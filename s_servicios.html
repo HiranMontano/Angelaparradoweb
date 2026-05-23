@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Servicios</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}
+:root{--orange:#ff6b35;--orange-light:#ff8c61;--orange-dark:#e85a2a;--yellow:#ffa500;--accent:#ffb347;--black:#0a0a0a;--dark:#1a1a1a;--white:#ffffff;--gray:#9ca3af;--gray-light:#d1d5db}
+body{font-family:'Lora',Georgia,serif;background:var(--black);color:var(--white);overflow-x:hidden;line-height:1.8}
+h1,h2,h3,h4,h5,h6{font-family:'Goudy Bookletter','Palatino Linotype',Palatino,Georgia,serif;font-weight:normal;letter-spacing:-.5px}
+.hero h1{font-size:7rem!important;font-weight:normal}
+.section-title{font-size:5rem!important;font-weight:normal}
+
+@keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeInDown{from{opacity:0;transform:translateY(-40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-60px)}to{opacity:1;transform:translateX(0)}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+@keyframes shimmer{0%{transform:translateX(-100%) translateY(-100%) rotate(45deg)}100%{transform:translateX(100%) translateY(100%) rotate(45deg)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+@keyframes gradientMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+.background-overlay{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;background:radial-gradient(circle at 20% 30%,rgba(255,107,53,.1) 0%,transparent 50%),radial-gradient(circle at 80% 70%,rgba(255,140,97,.08) 0%,transparent 50%)}
+
+.gradient-text{background:linear-gradient(135deg,var(--orange) 0%,var(--accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+.section-label{color:var(--orange-light);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:3px;margin-bottom:20px;text-align:center}
+.section-title{font-size:4.5rem;font-weight:800;margin-bottom:25px;letter-spacing:-2px;line-height:1.1;text-align:center}
+.section-subtitle{font-size:1.3rem;color:var(--gray);max-width:750px;margin:0 auto;line-height:1.7;text-align:center}
+.section-header{text-align:center;margin-bottom:90px}
+
+.btn{padding:18px 40px;border-radius:12px;font-size:1rem;font-weight:600;text-decoration:none;display:inline-block;transition:all .4s cubic-bezier(.34,1.56,.64,1);position:relative;overflow:hidden}
+.btn::before{content:'';position:absolute;top:50%;left:50%;width:0;height:0;border-radius:50%;background:rgba(255,255,255,.15);transform:translate(-50%,-50%);transition:width .5s,height .5s}
+.btn:hover::before{width:400px;height:400px}
+.btn span{position:relative;z-index:1}
+.btn-primary{background:var(--orange);color:var(--white);box-shadow:0 10px 40px rgba(255,107,53,.3)}
+.btn-primary:hover{background:var(--orange-dark);transform:translateY(-3px);box-shadow:0 15px 50px rgba(255,107,53,.5)}
+.btn-secondary{background:var(--orange);color:var(--white);box-shadow:0 10px 40px rgba(255,107,53,.3)}
+.btn-secondary:hover{background:var(--orange-dark);transform:translateY(-3px);box-shadow:0 15px 50px rgba(255,107,53,.5)}
+.btn-outline{background:transparent;color:var(--white);border:2px solid rgba(255,107,53,.5)}
+.btn-outline:hover{border-color:var(--orange);background:rgba(255,107,53,.1);transform:translateY(-3px)}
+
+.reveal{opacity:0;transform:translateY(60px);transition:all 1s cubic-bezier(.34,1.56,.64,1)}
+.reveal.active{opacity:1;transform:translateY(0)}
+
+.section{padding:120px 60px;position:relative}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:35px;max-width:1300px;margin:0 auto}
+.service-card{background:rgba(255,107,53,.04);padding:50px 40px;border-radius:24px;border:1px solid rgba(255,107,53,.15);transition:all .5s cubic-bezier(.34,1.56,.64,1);position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,var(--orange),var(--accent));opacity:0;transition:opacity .5s}
+.service-card:hover{transform:translateY(-12px) scale(1.02);border-color:var(--orange);box-shadow:0 25px 60px rgba(255,107,53,.35)}
+.service-card:hover::before{opacity:.08}
+.service-number{font-size:4rem;font-weight:800;color:rgba(255,107,53,.2);margin-bottom:20px;position:relative;z-index:1}
+.service-card h3{font-size:1.8rem;margin-bottom:18px;font-weight:700;position:relative;z-index:1}
+.service-card p{color:var(--gray);line-height:1.8;font-size:1.05rem;position:relative;z-index:1}
+.btn-download{display:inline-flex;align-items:center;gap:10px;margin-top:25px;padding:12px 24px;background:transparent;border:1px solid rgba(255,107,53,.5);border-radius:10px;color:var(--orange-light);font-size:.9rem;font-weight:600;text-decoration:none;position:relative;z-index:1;transition:all .3s}
+.btn-download:hover{background:rgba(255,107,53,.15);border-color:var(--orange);color:var(--white);transform:translateY(-2px)}
+@media(max-width:1200px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.section{padding:80px 30px}.services-grid{grid-template-columns:1fr}}
+</style></head>
+<body style="background:#0a0a0a;color:#fff">
+<section class="section reveal" id="servicios">
+  <div class="section-header">
+    <div class="section-label">Servicios</div>
+    <h2 class="section-title">Lo que hago</h2>
+    <p class="section-subtitle">Soluciones completas para eventos inolvidables. De la conceptualización a la ejecución perfecta.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-number">01</div>
+      <h3>Stage Management</h3>
+      <p>Coordinación completa del escenario. Timing perfecto, gestión de artistas y resolución instantánea de cualquier situación.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-number">02</div>
+      <h3>Producción de Eventos</h3>
+      <p>De la idea a la realidad. Logística integral, coordinación de equipos y gestión completa para eventos impecables.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-number">03</div>
+      <h3>Alquiler de Equipos</h3>
+      <p>Audio, infraestructura e iluminación profesional para eventos de alto impacto.</p>
+      <a href="PABOLPRODUCCIONES.pdf" target="_blank" rel="noopener noreferrer" class="btn-download">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Catálogo PABOL PRODUCCIONES
+      </a>
+    </div>
+  </div>
+</section>
+<script>
+function reveal(){
+  document.querySelectorAll('.reveal').forEach(el=>{
+    if(el.getBoundingClientRect().top < window.innerHeight-120) el.classList.add('active');
+  });
+}
+window.addEventListener('scroll',reveal);
+reveal();
+function loadVideo(c){
+  var f=document.createElement('iframe');
+  f.src=c.dataset.src;f.title='Pitch';
+  f.allow='accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture';
+  f.allowFullscreen=true;c.innerHTML='';c.appendChild(f);
+}
+</script></body></html>

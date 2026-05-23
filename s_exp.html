@@ -1,0 +1,116 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Experiencia</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}
+:root{--orange:#ff6b35;--orange-light:#ff8c61;--orange-dark:#e85a2a;--yellow:#ffa500;--accent:#ffb347;--black:#0a0a0a;--dark:#1a1a1a;--white:#ffffff;--gray:#9ca3af;--gray-light:#d1d5db}
+body{font-family:'Lora',Georgia,serif;background:var(--black);color:var(--white);overflow-x:hidden;line-height:1.8}
+h1,h2,h3,h4,h5,h6{font-family:'Goudy Bookletter','Palatino Linotype',Palatino,Georgia,serif;font-weight:normal;letter-spacing:-.5px}
+.hero h1{font-size:7rem!important;font-weight:normal}
+.section-title{font-size:5rem!important;font-weight:normal}
+
+@keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeInDown{from{opacity:0;transform:translateY(-40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-60px)}to{opacity:1;transform:translateX(0)}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+@keyframes shimmer{0%{transform:translateX(-100%) translateY(-100%) rotate(45deg)}100%{transform:translateX(100%) translateY(100%) rotate(45deg)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+@keyframes gradientMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+.background-overlay{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;background:radial-gradient(circle at 20% 30%,rgba(255,107,53,.1) 0%,transparent 50%),radial-gradient(circle at 80% 70%,rgba(255,140,97,.08) 0%,transparent 50%)}
+
+.gradient-text{background:linear-gradient(135deg,var(--orange) 0%,var(--accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+.section-label{color:var(--orange-light);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:3px;margin-bottom:20px;text-align:center}
+.section-title{font-size:4.5rem;font-weight:800;margin-bottom:25px;letter-spacing:-2px;line-height:1.1;text-align:center}
+.section-subtitle{font-size:1.3rem;color:var(--gray);max-width:750px;margin:0 auto;line-height:1.7;text-align:center}
+.section-header{text-align:center;margin-bottom:90px}
+
+.btn{padding:18px 40px;border-radius:12px;font-size:1rem;font-weight:600;text-decoration:none;display:inline-block;transition:all .4s cubic-bezier(.34,1.56,.64,1);position:relative;overflow:hidden}
+.btn::before{content:'';position:absolute;top:50%;left:50%;width:0;height:0;border-radius:50%;background:rgba(255,255,255,.15);transform:translate(-50%,-50%);transition:width .5s,height .5s}
+.btn:hover::before{width:400px;height:400px}
+.btn span{position:relative;z-index:1}
+.btn-primary{background:var(--orange);color:var(--white);box-shadow:0 10px 40px rgba(255,107,53,.3)}
+.btn-primary:hover{background:var(--orange-dark);transform:translateY(-3px);box-shadow:0 15px 50px rgba(255,107,53,.5)}
+.btn-secondary{background:var(--orange);color:var(--white);box-shadow:0 10px 40px rgba(255,107,53,.3)}
+.btn-secondary:hover{background:var(--orange-dark);transform:translateY(-3px);box-shadow:0 15px 50px rgba(255,107,53,.5)}
+.btn-outline{background:transparent;color:var(--white);border:2px solid rgba(255,107,53,.5)}
+.btn-outline:hover{border-color:var(--orange);background:rgba(255,107,53,.1);transform:translateY(-3px)}
+
+.reveal{opacity:0;transform:translateY(60px);transition:all 1s cubic-bezier(.34,1.56,.64,1)}
+.reveal.active{opacity:1;transform:translateY(0)}
+
+.experience-section{background:linear-gradient(180deg,var(--black) 0%,var(--dark) 50%,var(--black) 100%);padding:120px 60px}
+.project-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;max-width:1200px;margin:0 auto}
+.project-card{background:rgba(255,107,53,.05);padding:40px;border-radius:20px;border:1px solid rgba(255,107,53,.2);transition:all .4s;position:relative;overflow:hidden}
+.project-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--orange),var(--accent));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.project-card:hover{background:rgba(255,107,53,.12);border-color:var(--orange);transform:translateY(-10px);box-shadow:0 20px 50px rgba(255,107,53,.3)}
+.project-card:hover::before{transform:scaleX(1)}
+.project-card h5{font-size:1.5rem;font-weight:700;margin-bottom:15px}
+.project-card p{color:var(--gray);line-height:1.7;font-size:1.05rem;margin-bottom:20px}
+.project-meta{display:flex;gap:20px;padding-top:20px;border-top:1px solid rgba(255,107,53,.15)}
+.meta-item{display:flex;flex-direction:column}
+.meta-label{font-size:.8rem;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}
+.meta-value{font-size:1.2rem;font-weight:700;color:var(--orange-light)}
+@media(max-width:1200px){.project-cards{grid-template-columns:1fr}}
+@media(max-width:768px){.experience-section{padding:80px 30px}}
+</style></head>
+<body style="background:#0a0a0a;color:#fff">
+<section class="experience-section section reveal" id="experiencia">
+  <div class="section-header">
+    <div class="section-label">Experiencia</div>
+    <h2 class="section-title">Proyectos destacados</h2>
+    <p class="section-subtitle">5 meses de experiencia produciendo eventos memorables con resultados excepcionales.</p>
+  </div>
+  <div class="project-cards">
+    <div class="project-card">
+      <h5>Expreso social</h5>
+      <span class="meta-value">Co-creadora y Producción de Eventos</span>
+      <div class="project-meta">
+        <div class="meta-item">
+          <p>Expreso Social es una promotora de eventos creada junto a otras dos personas, enfocada en desarrollar experiencias más cercanas y conscientes entre artistas emergentes y su público. Dentro del proyecto participo en la planeación y producción de eventos, apoyando procesos logísticos, coordinación general y desarrollo creativo de la experiencia visual y conceptual de cada evento.</p>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <h5>Pabol Producciones - SAS</h5>
+      <span class="meta-value">Apoyo Logístico y Producción de Eventos</span>
+      <div class="project-meta">
+        <div class="meta-item">
+          <p>He participado en distintos eventos apoyando procesos técnicos, logísticos y operativos. En eventos pequeños he trabajado en montaje y operación básica de audio para presentaciones en vivo, y en producciones de mayor escala he apoyado procesos de logística, coordinación de equipos, montaje y necesidades generales tanto en escenario como en front of house.</p>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <h5>Iglesia del Nazareno Cali</h5>
+      <span class="meta-value">Apoyo Stage y Producción en Escenario</span>
+      <div class="project-meta">
+        <div class="meta-item">
+          <p>Hago parte de apoyo de stage durante servicios, apoyando procesos como line checks, revisión de instrumentos e input lists, además de facilitar la comunicación entre escenario e ingeniería durante cada culto.</p>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <h5>Universidad Icesi</h5>
+      <span class="meta-value">Stage y Backline</span>
+      <div class="project-meta">
+        <div class="meta-item">
+          <p>He participado en diferentes eventos musicales e institucionales dentro de la Universidad Icesi, desempeñándome en roles de stage y backline durante presentaciones de ensambles y eventos universitarios. Dentro de estos espacios apoyo la organización de escenario, manejo de tiempos, guía de artistas y logística en vivo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+function reveal(){
+  document.querySelectorAll('.reveal').forEach(el=>{
+    if(el.getBoundingClientRect().top < window.innerHeight-120) el.classList.add('active');
+  });
+}
+window.addEventListener('scroll',reveal);
+reveal();
+function loadVideo(c){
+  var f=document.createElement('iframe');
+  f.src=c.dataset.src;f.title='Pitch';
+  f.allow='accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture';
+  f.allowFullscreen=true;c.innerHTML='';c.appendChild(f);
+}
+</script></body></html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Testimonios</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}
+:root{--orange:#ff6b35;--orange-light:#ff8c61;--orange-dark:#e85a2a;--yellow:#ffa500;--accent:#ffb347;--black:#0a0a0a;--dark:#1a1a1a;--white:#ffffff;--gray:#9ca3af;--gray-light:#d1d5db}
+body{font-family:'Lora',Georgia,serif;background:var(--black);color:var(--white);overflow-x:hidden;line-height:1.8}
+h1,h2,h3,h4,h5,h6{font-family:'Goudy Bookletter','Palatino Linotype',Palatino,Georgia,serif;font-weight:normal;letter-spacing:-.5px}
+.hero h1{font-size:7rem!important;font-weight:normal}
+.section-title{font-size:5rem!important;font-weight:normal}
+
+@keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeInDown{from{opacity:0;transform:translateY(-40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-60px)}to{opacity:1;transform:translateX(0)}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+@keyframes shimmer{0%{transform:translateX(-100%) translateY(-100%) rotate(45deg)}100%{transform:translateX(100%) translateY(100%) rotate(45deg)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+@keyframes gradientMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+.background-overlay{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;background:radial-gradient(circle at 20% 30%,rgba(255,107,53,.1) 0%,transparent 50%),radial-gradient(circle at 80% 70%,rgba(255,140,97,.08) 0%,transparent 50%)}
+
+.gradient-text{background:linear-gradient(135deg,var(--orange) 0%,var(--accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+.section-label{color:var(--orange-light);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:3px;margin-bottom:20px;text-align:center}
+.section-title{font-size:4.5rem;font-weight:800;margin-bottom:25px;letter-spacing:-2px;line-height:1.1;text-align:center}
+.section-subtitle{font-size:1.3rem;color:var(--gray);max-width:750px;margin:0 auto;line-height:1.7;text-align:center}
+.section-header{text-align:center;margin-bottom:90px}
+
+.btn{padding:18px 40px;border-radius:12px;font-size:1rem;font-weight:600;text-decoration:none;display:inline-block;transition:all .4s cubic-bezier(.34,1.56,.64,1);position:relative;overflow:hidden}
+.btn::before{content:'';position:absolute;top:50%;left:50%;width:0;height:0;border-radius:50%;background:rgba(255,255,255,.15);transform:translate(-50%,-50%);transition:width .5s,height .5s}
+.btn:hover::before{width:400px;height:400px}
+.btn span{position:relative;z-index:1}
+.btn-primary{background:var(--orange);color:var(--white);box-shadow:0 10px 40px rgba(255,107,53,.3)}
+.btn-primary:hover{background:var(--orange-dark);transform:translateY(-3px);box-shadow:0 15px 50px rgba(255,107,53,.5)}
+.btn-secondary{background:var(--orange);color:var(--white);box-shadow:0 10px 40px rgba(255,107,53,.3)}
+.btn-secondary:hover{background:var(--orange-dark);transform:translateY(-3px);box-shadow:0 15px 50px rgba(255,107,53,.5)}
+.btn-outline{background:transparent;color:var(--white);border:2px solid rgba(255,107,53,.5)}
+.btn-outline:hover{border-color:var(--orange);background:rgba(255,107,53,.1);transform:translateY(-3px)}
+
+.reveal{opacity:0;transform:translateY(60px);transition:all 1s cubic-bezier(.34,1.56,.64,1)}
+.reveal.active{opacity:1;transform:translateY(0)}
+
+.section{padding:120px 60px;position:relative}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:35px;max-width:1300px;margin:0 auto}
+.testimonial-card{background:rgba(255,107,53,.04);backdrop-filter:blur(10px);padding:45px;border-radius:24px;border:1px solid rgba(255,107,53,.15);transition:all .4s}
+.testimonial-card:hover{transform:translateY(-10px);border-color:var(--orange);box-shadow:0 20px 50px rgba(255,107,53,.25)}
+.quote-mark{font-size:4rem;color:var(--orange);opacity:.25;line-height:1;margin-bottom:20px;font-family:Georgia,serif}
+.testimonial-text{font-size:1.15rem;line-height:1.8;color:var(--gray);margin-bottom:30px}
+.testimonial-author{font-weight:700;color:var(--orange-light);font-size:.95rem}
+
+.cta-section{padding:150px 60px;text-align:center;position:relative;background:linear-gradient(135deg,rgba(255,107,53,.08),rgba(255,140,97,.08))}
+.cta-section h2{font-size:5.5rem;font-weight:800;margin-bottom:30px;line-height:1.15;letter-spacing:-2px}
+.cta-section p{font-size:1.5rem;color:var(--gray);margin-bottom:55px}
+.cta-buttons{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+
+footer{padding:80px 60px 50px;text-align:center;border-top:1px solid rgba(255,107,53,.15)}
+.footer-logo{font-family:'Goudy Bookletter','Palatino Linotype',Georgia,serif;font-size:2rem;font-weight:800;margin-bottom:30px;letter-spacing:-1px;display:block}
+footer p{color:var(--gray);margin-bottom:12px;font-size:.95rem}
+
+@media(max-width:1200px){.testimonials-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.section{padding:80px 30px}.testimonials-grid{grid-template-columns:1fr}.cta-section{padding:80px 30px}.cta-section h2{font-size:3rem}.cta-buttons{flex-direction:column}}
+</style></head>
+<body style="background:#0a0a0a;color:#fff">
+<section class="section reveal" id="testimonios">
+  <div class="section-header">
+    <div class="section-label">Testimonios</div>
+    <h2 class="section-title">Lo que dicen</h2>
+    <p class="section-subtitle">Resultados que hablan por sí mismos.</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="quote-mark">"</div>
+      <p class="testimonial-text">Angela es una persona muy organizada, firme y clara en sus ideas, además de contar con la capacidad para gestionar de forma rápida y eficiente y es un gran equipo.</p>
+      <p class="testimonial-author">Valeria y Veca</p>
+    </div>
+    <div class="testimonial-card">
+      <div class="quote-mark">"</div>
+      <p class="testimonial-text">Comunicación clara y efectiva. Siempre sabe exactamente qué necesitamos en cada momento del evento.</p>
+      <p class="testimonial-author">Alexis Play</p>
+    </div>
+    <div class="testimonial-card">
+      <div class="quote-mark">"</div>
+      <p class="testimonial-text">Es una persona con buena atención al cliente y buen manejo de personal. Es eficiente y tranquila bajo presión.</p>
+      <p class="testimonial-author">Pabol Producciones</p>
+    </div>
+  </div>
+</section>
+<section class="cta-section reveal" id="contacto">
+  <h2>¿Listo para crear algo<br>extraordinario?</h2>
+  <p>Conversemos sobre tu próximo proyecto</p>
+  <div class="cta-buttons">
+    <a href="mailto:Parradorestrepo05@gmail.com" class="btn btn-primary"><span>Enviar email</span></a>
+    <a href="https://wa.me/573184036146" class="btn btn-secondary" target="_blank" rel="noopener noreferrer"><span>WhatsApp</span></a>
+    <a href="https://instagram.com/angelaparrado22" class="btn btn-secondary" target="_blank" rel="noopener noreferrer"><span>Instagram</span></a>
+  </div>
+</section>
+<footer>
+  <span class="footer-logo">Angela Parrado</span>
+  <p>&copy; 2025 Stage &amp; Production Management</p>
+  <p>Cali, Valle del Cauca, Colombia</p>
+</footer>
+<script>
+function reveal(){
+  document.querySelectorAll('.reveal').forEach(el=>{
+    if(el.getBoundingClientRect().top < window.innerHeight-120) el.classList.add('active');
+  });
+}
+window.addEventListener('scroll',reveal);
+reveal();
+function loadVideo(c){
+  var f=document.createElement('iframe');
+  f.src=c.dataset.src;f.title='Pitch';
+  f.allow='accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture';
+  f.allowFullscreen=true;c.innerHTML='';c.appendChild(f);
+}
+</script></body></html>
